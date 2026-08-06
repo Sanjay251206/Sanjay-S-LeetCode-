@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isHappy(int n) {
+      int slow=n;
+      int fast=n;
+      do{
+        slow=findsq(slow);
+        fast=findsq(findsq(fast));
+      }
+      while(slow!=fast);
+        if(slow==1){
+            return true;
+        }
+        else{
+            return false;
+        }
+      
+    }
+    private int findsq(int n){
+        int sum=0;
+        while(n!=0){
+            int temp=n%10;
+            sum+=temp*temp;
+            n/=10;
+        }
+        return sum;
+    }
+}
